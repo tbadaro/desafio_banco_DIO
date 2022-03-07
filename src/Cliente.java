@@ -7,12 +7,22 @@ public class Cliente {
         PESSOA_FISICA,
         PESSOA_JURIDICA
     }
+
+    private static int SEQ_PF = 1;
+    private static int SEQ_PJ = 1;
+
+    protected String identificador;
     protected String nome;
     private List<Conta> contas;
-    public TipoPessoa tipoPessoa;
+    protected TipoPessoa tipoPessoa;
     protected Banco banco;
 
     public Cliente(String nome, TipoPessoa tipoPessoa, Banco banco){
+        if(tipoPessoa == TipoPessoa.PESSOA_FISICA){
+            this.identificador = "PF_"+SEQ_PF++;
+        } else if (tipoPessoa == TipoPessoa.PESSOA_JURIDICA) {
+            this.identificador = "PJ_" + SEQ_PJ++;
+        }
         this.banco = banco;
         this.nome = nome;
         this.tipoPessoa = tipoPessoa;

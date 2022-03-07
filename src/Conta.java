@@ -1,8 +1,9 @@
 import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.lang.ref.Cleaner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conta implements IConta {
+public class Conta {
 
     protected enum TipoConta {
         CONTA_CORRENTE,
@@ -29,7 +30,7 @@ public class Conta implements IConta {
 
     public void imprimirExtrato() {
         System.out.println("=== Extrato da Conta ===");
-        imprimirInfos();
+        imprimirInfoESaldo();
         System.out.println("=== Histórico de transações ===");
         imprimirHistorico();
         System.out.println(" ");
@@ -43,17 +44,17 @@ public class Conta implements IConta {
             System.out.printf("Saldo: R$%.2f%n", this.saldo);
         }
     }
-    protected void imprimirInfos() {
+    protected void imprimirInfoESaldo() {
         this.imprimir(true);
     }
-    public void imprimir() {
+    public void imprimirInfo() {
         this.imprimir(false);
     }
     protected void imprimirHistorico() {
         for (Transacao transacao : transacoes){
             if (transacao.tipoTransacao == Transacao.TipoTransacao.TRANSFERENCIA) {
                 System.out.println(transacao.tipoTransacao);
-                if (cliente.nome.equals(transacao.conta.cliente.nome)) {
+                if (this.numero == transacao.conta.numero) {
                     System.out.printf("Beneficiário: %s%n", transacao.contaDestino.cliente.nome);
                     System.out.printf("Ag.: %s", transacao.contaDestino.agencia);
                     System.out.printf(" Conta num.: %s%n", transacao.contaDestino.numero);

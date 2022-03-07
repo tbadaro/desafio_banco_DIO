@@ -31,7 +31,7 @@ public class Banco {
         System.out.println(this.nomeDoBanco);
         System.out.println("----------");
         for (Conta conta : contas){
-            conta.imprimir();
+            conta.imprimirInfo();
             System.out.println("----------");
         }
     }
@@ -40,6 +40,7 @@ public class Banco {
         System.out.println(this.nomeDoBanco);
         System.out.println("----------");
         for (Cliente cliente : clientes){
+            System.out.printf("Código identificador: %s%n", cliente.identificador);
             System.out.printf("Nome do cliente: %s%n",cliente.nome);
             System.out.printf("Tipo: %s%n",cliente.tipoPessoa);
             System.out.println("--- Contas ---");
@@ -52,6 +53,7 @@ public class Banco {
                     System.out.println("----------");
                 }
             }
+            System.out.println("----------");
         }
         System.out.println(" ");
     }

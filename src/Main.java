@@ -32,12 +32,14 @@ public class Main {
 
         Transacao.transacao(Transacao.TipoTransacao.DEPOSITO, contaCorrenteCliente1, null, 200);
         Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaCorrenteCliente1, contaCorrenteCliente3, 50);
+        Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaCorrenteCliente1, contaPoupancaCliente1, 50);
         Transacao.transacao(Transacao.TipoTransacao.SAQUE, contaCorrenteCliente1, null, 50);
         Transacao.transacao(Transacao.TipoTransacao.DEPOSITO,contaPoupancaCliente2, null, 1500);
         Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaPoupancaCliente2, contaCorrenteCliente1, 150);
         Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaPoupancaCliente2, contaCorrenteCliente3, 250);
 
         contaCorrenteCliente1.imprimirExtrato();
+        contaPoupancaCliente1.imprimirExtrato();
         contaPoupancaCliente2.imprimirExtrato();
         contaCorrenteCliente3.imprimirExtrato();
         banco.imprimirListaDeClientes();
