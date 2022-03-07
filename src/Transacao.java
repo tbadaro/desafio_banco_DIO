@@ -20,11 +20,11 @@ public class Transacao{
     protected static void transacao(Transacao.TipoTransacao tipo, Conta conta, Conta contaDestino, double valor) {
         if (tipo == Transacao.TipoTransacao.SAQUE) {
             conta.saldo -= valor;
-            Transacao transacao = new Transacao(tipo, conta,contaDestino, valor);
+            Transacao transacao = new Transacao(tipo, conta,null, valor);
             conta.transacoes.add(transacao);
         } else if (tipo == Transacao.TipoTransacao.DEPOSITO) {
             conta.saldo += valor;
-            Transacao transacao = new Transacao(tipo, conta, contaDestino, valor);
+            Transacao transacao = new Transacao(tipo, conta, null, valor);
             conta.transacoes.add(transacao);
         } else if (tipo == Transacao.TipoTransacao.TRANSFERENCIA) {
             conta.saldo -= valor;
