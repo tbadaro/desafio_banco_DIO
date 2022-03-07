@@ -1,6 +1,6 @@
 # desafio_banco_DIO
 
-Projeto desevolvido para o desafio de código: Criando um Banco Digital com Java e Orientação a Objetos da DIO.
+Projeto desevolvido para o desafio de projeto: Criando um Banco Digital com Java e Orientação a Objetos da DIO.
 
 O projeto implementa funcionalidades de um banco digital através do gerenciamento de clientes e contas.
 
