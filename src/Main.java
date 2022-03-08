@@ -30,13 +30,14 @@ public class Main {
         banco1.addConta(contaCorrenteCliente3);
         banco1.addConta(contaCorrenteCliente4);
 
-        Transacao.transacao(Transacao.TipoTransacao.DEPOSITO, contaCorrenteCliente1, null, 200);
-        Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaCorrenteCliente1, contaCorrenteCliente3, 50);
-        Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaCorrenteCliente1, contaPoupancaCliente1, 50);
-        Transacao.transacao(Transacao.TipoTransacao.SAQUE, contaCorrenteCliente1, null, 50);
-        Transacao.transacao(Transacao.TipoTransacao.DEPOSITO,contaPoupancaCliente2, null, 1500);
-        Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaPoupancaCliente2, contaCorrenteCliente1, 150);
-        Transacao.transacao(Transacao.TipoTransacao.TRANSFERENCIA, contaPoupancaCliente2, contaCorrenteCliente3, 250);
+        Transacao.deposito(contaCorrenteCliente1, 200);
+        Transacao.transferencia(contaCorrenteCliente1, contaCorrenteCliente3, 50);
+        Transacao.transferencia(contaCorrenteCliente1, contaPoupancaCliente1, 50);
+        Transacao.saque(contaCorrenteCliente1, 50);
+        Transacao.saque(contaPoupancaCliente2, 300);
+        Transacao.deposito(contaPoupancaCliente2, 1500);
+        Transacao.transferencia(contaPoupancaCliente2, contaCorrenteCliente1, 150);
+        Transacao.transferencia(contaPoupancaCliente2, contaCorrenteCliente3, 250);
 
         contaCorrenteCliente1.imprimirExtrato();
         contaPoupancaCliente1.imprimirExtrato();

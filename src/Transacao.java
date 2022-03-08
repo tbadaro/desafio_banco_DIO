@@ -17,23 +17,23 @@ public class Transacao{
         this.valor = valor;
         this.contaDestino = contaDestino;
     }
-    protected static void transacao(Transacao.TipoTransacao tipo, Conta conta, Conta contaDestino, double valor) {
-        if (tipo == Transacao.TipoTransacao.SAQUE) {
-            conta.saldo -= valor;
-            Transacao transacao = new Transacao(tipo, conta,null, valor);
-            conta.transacoes.add(transacao);
-        } else if (tipo == Transacao.TipoTransacao.DEPOSITO) {
-            conta.saldo += valor;
-            Transacao transacao = new Transacao(tipo, conta, null, valor);
-            conta.transacoes.add(transacao);
-        } else if (tipo == Transacao.TipoTransacao.TRANSFERENCIA) {
-            conta.saldo -= valor;
-            contaDestino.saldo += valor;
-            Transacao transacao = new Transacao(Transacao.TipoTransacao.TRANSFERENCIA, conta, contaDestino, valor);
-            conta.transacoes.add(transacao);
-            contaDestino.transacoes.add(transacao);
-        } else {
-            throw new RuntimeException("OPERAÇÃO INVÁLIDA");
-        }
+
+    protected static void saque(Conta conta, double valor){
+        conta.saldo -= valor;
+        Transacao saque = new Transacao(TipoTransacao.SAQUE, conta, null, valor);
+        conta.transacoes.add(saque);
     }
+    protected static void deposito(Conta conta, double valor){
+        conta.saldo += valor;
+        Transacao deposito = new Transacao(TipoTransacao.DEPOSITO, conta, null, valor);
+        conta.transacoes.add(deposito);
+    }
+    protected static void transferencia(Conta conta, Conta contaDestino, double valor){
+        conta.saldo -= valor;
+        contaDestino.saldo += valor;
+        Transacao transferencia = new Transacao(Transacao.TipoTransacao.TRANSFERENCIA, conta, contaDestino, valor);
+        conta.transacoes.add(transferencia);
+        contaDestino.transacoes.add(transferencia);
+    }
+
 }
