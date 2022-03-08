@@ -34,6 +34,8 @@ public class Banco {
             conta.imprimirInfo();
             System.out.println("----------");
         }
+        System.out.println("----------");
+        System.out.println(" ");
     }
     public void imprimirListaDeClientes() {
         System.out.println("=== Lista de clientes ===");

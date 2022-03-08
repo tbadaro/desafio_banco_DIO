@@ -12,38 +12,40 @@ public class Main {
         banco1.addCliente(cliente3);
         banco1.addCliente(cliente4);
 
-        Conta contaCorrenteCliente1 = new Conta(cliente1, Conta.TipoConta.CONTA_CORRENTE);
-        Conta contaPoupancaCliente1 = new Conta(cliente1, Conta.TipoConta.CONTA_POUPANCA);
-        Conta contaPoupancaCliente2 = new Conta(cliente2, Conta.TipoConta.CONTA_POUPANCA);
-        Conta contaCorrenteCliente3 = new Conta(cliente3, Conta.TipoConta.CONTA_CORRENTE);
-        Conta contaCorrenteCliente4 = new Conta(cliente4, Conta.TipoConta.CONTA_CORRENTE);
+        Conta conta1 = new Conta(cliente1, Conta.TipoConta.CONTA_CORRENTE);
+        Conta conta2 = new Conta(cliente1, Conta.TipoConta.CONTA_POUPANCA);
+        Conta conta3 = new Conta(cliente2, Conta.TipoConta.CONTA_POUPANCA);
+        Conta conta4 = new Conta(cliente3, Conta.TipoConta.CONTA_CORRENTE);
+        Conta conta5 = new Conta(cliente4, Conta.TipoConta.CONTA_CORRENTE);
 
-        cliente1.addConta(contaCorrenteCliente1);
-        cliente1.addConta(contaPoupancaCliente1);
-        cliente2.addConta(contaPoupancaCliente2);
-        cliente3.addConta(contaCorrenteCliente3);
-        cliente4.addConta(contaCorrenteCliente4);
+        cliente1.addConta(conta1);
+        cliente1.addConta(conta2);
+        cliente2.addConta(conta3);
+        cliente3.addConta(conta4);
+        cliente4.addConta(conta5);
 
-        banco1.addConta(contaCorrenteCliente1);
-        banco1.addConta(contaPoupancaCliente1);
-        banco1.addConta(contaPoupancaCliente2);
-        banco1.addConta(contaCorrenteCliente3);
-        banco1.addConta(contaCorrenteCliente4);
+        banco1.addConta(conta1);
+        banco1.addConta(conta2);
+        banco1.addConta(conta3);
+        banco1.addConta(conta4);
+        banco1.addConta(conta5);
 
-        Transacao.deposito(contaCorrenteCliente1, 200);
-        Transacao.transferencia(contaCorrenteCliente1, contaCorrenteCliente3, 50);
-        Transacao.transferencia(contaCorrenteCliente1, contaPoupancaCliente1, 50);
-        Transacao.saque(contaCorrenteCliente1, 50);
-        Transacao.saque(contaPoupancaCliente2, 300);
-        Transacao.deposito(contaPoupancaCliente2, 1500);
-        Transacao.transferencia(contaPoupancaCliente2, contaCorrenteCliente1, 150);
-        Transacao.transferencia(contaPoupancaCliente2, contaCorrenteCliente3, 250);
+        Transacao.deposito(conta1, 200);
+        Transacao.transferencia(conta1, conta4, 50);
+        Transacao.transferencia(conta1, conta2, 50);
+        Transacao.saque(conta1, 50);
+        Transacao.saque(conta3, 300);
+        Transacao.deposito(conta3, 1500);
+        Transacao.transferencia(conta3, conta1, 150);
+        Transacao.transferencia(conta3, conta4, 250);
 
-        contaCorrenteCliente1.imprimirExtrato();
-        contaPoupancaCliente1.imprimirExtrato();
-        contaPoupancaCliente2.imprimirExtrato();
-        contaCorrenteCliente3.imprimirExtrato();
+        conta1.imprimirExtrato();
+        conta2.imprimirExtrato();
+        conta3.imprimirExtrato();
+        conta4.imprimirExtrato();
+        conta5.imprimirExtrato();
         banco1.imprimirListaDeClientes();
+        banco1.imprimirListaDeContas();
         cliente1.imprimirInfoCliente();
 
     }
